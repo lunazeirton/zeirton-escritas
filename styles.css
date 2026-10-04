@@ -35,3 +35,10 @@ header{background:#f4c313;border-bottom:0}
 .reader .reading-text .eyebrow{font-size:12px;line-height:1.5;margin:0 0 12px;color:#62645c}
 .reader #download{display:inline-block}
 @media(max-width:760px){.reading-layout{grid-template-columns:1fr;gap:32px}.reader{padding-top:26px;padding-bottom:60px}.reading-visual{width:100%;max-width:520px;margin-inline:auto}.reading-visual.is-empty .reading-image-space{aspect-ratio:1.6}.reader .reading-text h1{font-size:38px;margin-bottom:28px}.reader .reading-text p{font-size:19px;line-height:1.7}.reading-view .header-inner{gap:12px}}
+
+/* Escritas em Courier New, com tamanho grande e marca-texto editorial. */
+.reader .reading-text{font-family:"Courier New",Courier,monospace}
+.reader .reading-text h1{font-family:inherit;font-size:clamp(2.5rem,4.3vw,4rem);font-weight:700;letter-spacing:-.035em;line-height:1.18}
+.reader .reading-text #reading-body p{font-family:inherit;font-size:2rem;line-height:1.6;margin-bottom:2rem}
+.reader .reading-text mark{background:#ffe84d;color:#22251f;padding:.03em .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+@media(max-width:760px){.reader .reading-text #reading-body p{font-size:1.625rem;line-height:1.55}.reader .reading-text h1{font-size:2.5rem}}

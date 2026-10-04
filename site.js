@@ -5,6 +5,26 @@ const el = id => document.getElementById(id);
 function safeURL(value){if(!value)return null;try{const u=new URL(value,location.href);return ['http:','https:','file:'].includes(u.protocol)?u.href:null}catch{return null}}
 function label(n){return n===1?'1 publicação':`${n} publicações`}
 function node(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n}
+
+function readingParagraph(text, highlights = []) {
+ const paragraph = node('p');
+ const source = String(text ?? '');
+ const phrases = [...new Set((Array.isArray(highlights) ? highlights : []).filter(s => typeof s === 'string' && s.length))];
+ let cursor = 0;
+ while (cursor < source.length) {
+  let start = -1, selected = '';
+  for (const phrase of phrases) {
+   const index = source.indexOf(phrase, cursor);
+   if (index !== -1 && (start === -1 || index < start || (index === start && phrase.length > selected.length))) { start = index; selected = phrase; }
+  }
+  if (start === -1) { paragraph.append(document.createTextNode(source.slice(cursor))); break; }
+  if (start > cursor) paragraph.append(document.createTextNode(source.slice(cursor, start)));
+  paragraph.append(node('mark', selected));
+  cursor = start + selected.length;
+ }
+ return paragraph;
+}
+
 function render(){
  let route;try{route=decodeURIComponent(location.hash.slice(1))||'inicio'}catch{route='inicio'}
  const article=route.startsWith('ler/')?items.find(p=>String(p.id)===route.slice(4)):null;
@@ -17,7 +37,7 @@ function render(){
   document.title=`${article.titulo} | Zeirton Luna`;el('reading-title').textContent=article.titulo;el('reading-meta').textContent=categorias[article.categoria]||'';el('back').href='#'+article.categoria;
   el('reading-credit').textContent=article.imagemCredito||'';el('reading-credit').hidden=!article.imagemCredito;
   const image=safeURL(article.imagem);el('reading-visual').classList.toggle('is-empty',!image);el('reading-image').hidden=!image;if(image){el('reading-image').src=image;el('reading-image').alt=article.imagemAlt||''}else el('reading-image').removeAttribute('src');
-  el('reading-body').replaceChildren(...(Array.isArray(article.paragrafos)?article.paragrafos:[]).map(p=>node('p',p)));
+  el('reading-body').replaceChildren(...(Array.isArray(article.paragrafos)?article.paragrafos:[]).map(p=>readingParagraph(p, article.destaques)));
   const file=safeURL(article.arquivo);el('download').hidden=!file;if(file)el('download').href=file;else el('download').removeAttribute('href');
  }else{
   const valid=categorias[route];const selected=valid?items.filter(p=>p.categoria===route):items;
