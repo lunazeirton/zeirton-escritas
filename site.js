@@ -18,7 +18,7 @@ function render(){
   const file=safeURL(article.arquivo);el('download').hidden=!file;if(file)el('download').href=file;else el('download').removeAttribute('href');
  }else{
   const valid=categorias[route];const selected=valid?items.filter(p=>p.categoria===route):items;
-  document.title=valid?`${valid} | Zeirton Luna`:'Zeirton Luna';el('page-title').replaceChildren();if(valid)el('page-title').textContent=valid;else el('page-title').append(document.createTextNode('Zeirton '),node('em','Luna.'));
+  document.title=valid?`${valid} | Zeirton Luna`:'Zeirton Luna';el('page-title').replaceChildren();if(valid)el('page-title').textContent=valid;else el('page-title').textContent='Zeirton Luna';
   el('eyebrow').textContent=valid?'Zeirton Luna':'Artigos, escritas, opiniões e livros';el('collection-title').textContent=valid?valid:'Todas as publicações';el('total').textContent=label(selected.length);el('empty').hidden=selected.length>0;
   el('entries').replaceChildren(...selected.map(p=>{const card=node('article',null,'entry');const img=safeURL(p.imagem);if(img){const i=node('img');i.src=img;i.alt=p.imagemAlt||'';i.loading='lazy';card.append(i)}card.append(node('small',categorias[p.categoria]||''));const h=node('h3'),a=node('a',p.titulo);a.href='#ler/'+encodeURIComponent(p.id);h.append(a);card.append(h);if(p.resumo)card.append(node('p',p.resumo));return card}));
  }
