@@ -55,3 +55,6 @@ header{background:#f4c313;border-bottom:0}
 .reader .reading-text #reading-body{text-align:left}
 .reader .reading-text #reading-body p{line-height:1.65;margin-bottom:2rem}
 @media(max-width:760px){.reader.wrap{width:calc(100% - 40px);padding-top:26px}.reader .reading-text h1{margin-bottom:32px}}
+
+/* Título em uma linha na leitura em computador. */
+@media(min-width:761px){.reader .reading-text h1{max-width:none;font-size:clamp(1.125rem,2.25vw,2.4rem);white-space:nowrap;letter-spacing:-.045em;line-height:1.3}}
