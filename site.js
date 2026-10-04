@@ -9,12 +9,14 @@ function render(){
  let route;try{route=decodeURIComponent(location.hash.slice(1))||'inicio'}catch{route='inicio'}
  const article=route.startsWith('ler/')?items.find(p=>String(p.id)===route.slice(4)):null;
  const category=article?article.categoria:route;
+ document.body.classList.toggle('reading-view',!!article);
  el('home-banner').hidden=!!article||!!categorias[route];
  document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+category)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  document.querySelector('.masthead').hidden=!!article;el('collection').hidden=!!article;el('reader').hidden=!article;
  if(article){
   document.title=`${article.titulo} | Zeirton Luna`;el('reading-title').textContent=article.titulo;el('reading-meta').textContent=categorias[article.categoria]||'';el('back').href='#'+article.categoria;
-  const image=safeURL(article.imagem);el('reading-image').hidden=!image;if(image){el('reading-image').src=image;el('reading-image').alt=article.imagemAlt||''}else el('reading-image').removeAttribute('src');
+  el('reading-credit').textContent=article.imagemCredito||'';el('reading-credit').hidden=!article.imagemCredito;
+  const image=safeURL(article.imagem);el('reading-visual').classList.toggle('is-empty',!image);el('reading-image').hidden=!image;if(image){el('reading-image').src=image;el('reading-image').alt=article.imagemAlt||''}else el('reading-image').removeAttribute('src');
   el('reading-body').replaceChildren(...(Array.isArray(article.paragrafos)?article.paragrafos:[]).map(p=>node('p',p)));
   const file=safeURL(article.arquivo);el('download').hidden=!file;if(file)el('download').href=file;else el('download').removeAttribute('href');
  }else{

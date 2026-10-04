@@ -15,3 +15,23 @@ header{background:#f4c313;border-bottom:0}
 /* Transparência leve do banner sobre fundo claro, sem alterar o original. */
 .home-banner{background:#f2f1ed;overflow:hidden}
 .home-banner img{opacity:.8}
+
+/* Modelo permanente de leitura: imagem à esquerda, escrita à direita. */
+.reading-view header{background:var(--paper)}
+.reading-view .header-inner{min-height:64px}
+.reading-view .brand{font-size:20px;letter-spacing:0}
+.reading-view .brand span{display:none}
+.reader{max-width:1240px;padding-top:30px}
+.reader>a{margin-bottom:30px}
+.reading-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(36px,5vw,80px);align-items:start}
+.reading-visual{margin:0}
+.reading-image-space{width:100%;min-height:0}
+.reading-visual.is-empty .reading-image-space{aspect-ratio:1.13;background:#e9e8e3}
+.reader .reading-visual img{display:block;width:100%;height:auto;margin:0}
+.reading-visual figcaption{margin-top:8px;font-size:14px;line-height:1.5;text-align:left;overflow-wrap:anywhere}
+.reading-text{min-width:0;text-align:center}
+.reader .reading-text h1{margin:10px 0 38px;font-size:clamp(36px,4.2vw,60px);font-weight:400;line-height:1.18;letter-spacing:-.035em;color:#c63c24;overflow-wrap:anywhere}
+.reader .reading-text p{font-size:21px;line-height:1.6;margin:0 0 25px}
+.reader .reading-text .eyebrow{font-size:12px;line-height:1.5;margin:0 0 12px;color:#62645c}
+.reader #download{display:inline-block}
+@media(max-width:760px){.reading-layout{grid-template-columns:1fr;gap:32px}.reader{padding-top:26px;padding-bottom:60px}.reading-visual{width:100%;max-width:520px;margin-inline:auto}.reading-visual.is-empty .reading-image-space{aspect-ratio:1.6}.reader .reading-text h1{font-size:38px;margin-bottom:28px}.reader .reading-text p{font-size:19px;line-height:1.7}.reading-view .header-inner{gap:12px}}
