@@ -11,3 +11,7 @@ header{background:#f4c313;border-bottom:0}
 .home-banner img{display:block;width:100%;height:auto}
 .publication-count{font:14px/1.6 Arial,sans-serif;color:#62645c;margin:18px 0 0}
 @media(max-width:760px){.header-inner{min-height:76px;padding:20px 0;gap:14px}.masthead{padding:26px 0 35px}.masthead h1{font-size:clamp(43px,10.8vw,80px);margin:16px 0 0;letter-spacing:-.04em}.masthead .eyebrow{font-size:clamp(15px,3.5vw,24px)}.home-banner{margin-top:28px}}
+
+/* Transparência leve do banner sobre fundo claro, sem alterar o original. */
+.home-banner{background:#f2f1ed;overflow:hidden}
+.home-banner img{opacity:.8}

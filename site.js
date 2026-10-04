@@ -9,6 +9,7 @@ function render(){
  let route;try{route=decodeURIComponent(location.hash.slice(1))||'inicio'}catch{route='inicio'}
  const article=route.startsWith('ler/')?items.find(p=>String(p.id)===route.slice(4)):null;
  const category=article?article.categoria:route;
+ el('home-banner').hidden=!!article||!!categorias[route];
  document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+category)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  document.querySelector('.masthead').hidden=!!article;el('collection').hidden=!!article;el('reader').hidden=!article;
  if(article){
