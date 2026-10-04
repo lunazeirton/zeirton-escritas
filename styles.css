@@ -42,3 +42,7 @@ header{background:#f4c313;border-bottom:0}
 .reader .reading-text #reading-body p{font-family:inherit;font-size:2rem;line-height:1.6;margin-bottom:2rem}
 .reader .reading-text mark{background:#ffe84d;color:#22251f;padding:.03em .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 @media(max-width:760px){.reader .reading-text #reading-body p{font-size:1.625rem;line-height:1.55}.reader .reading-text h1{font-size:2.5rem}}
+
+/* Capitular na abertura do artigo. */
+.reader #reading-body>p:first-child{text-align:left;display:flow-root}
+.reader #reading-body>p:first-child::first-letter{float:left;font-family:"Courier New",Courier,monospace;font-size:3.25em;font-weight:700;line-height:.85;padding:.12em .12em 0 0;color:var(--ink)}
