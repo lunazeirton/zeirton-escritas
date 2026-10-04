@@ -35,8 +35,6 @@ function render(){
  document.querySelector('.masthead').hidden=!!article;el('collection').hidden=!!article;el('reader').hidden=!article;
  if(article){
   document.title=`${article.titulo} | Zeirton Luna`;el('reading-title').textContent=article.titulo;el('reading-meta').textContent=categorias[article.categoria]||'';el('back').href='#'+article.categoria;
-  el('reading-credit').textContent=article.imagemCredito||'';el('reading-credit').hidden=!article.imagemCredito;
-  const image=safeURL(article.imagem);el('reading-visual').classList.toggle('is-empty',!image);el('reading-image').hidden=!image;if(image){el('reading-image').src=image;el('reading-image').alt=article.imagemAlt||''}else el('reading-image').removeAttribute('src');
   el('reading-body').replaceChildren(...(Array.isArray(article.paragrafos)?article.paragrafos:[]).map(p=>readingParagraph(p, article.destaques)));
   const file=safeURL(article.arquivo);el('download').hidden=!file;if(file)el('download').href=file;else el('download').removeAttribute('href');
  }else{

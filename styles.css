@@ -46,3 +46,12 @@ header{background:#f4c313;border-bottom:0}
 /* Capitular na abertura do artigo. */
 .reader #reading-body>p:first-child{text-align:left;display:flow-root}
 .reader #reading-body>p:first-child::first-letter{float:left;font-family:"Courier New",Courier,monospace;font-size:3.25em;font-weight:700;line-height:.85;padding:.12em .12em 0 0;color:var(--ink)}
+
+/* Leitura ampla e centralizada para computador, sem coluna de imagem. */
+.reader.wrap{width:92%;max-width:1440px;margin-inline:auto;padding-top:40px}
+.reading-layout{display:block}
+.reading-text{width:100%;margin-inline:auto}
+.reader .reading-text h1{max-width:1250px;margin:16px auto 48px;text-align:center}
+.reader .reading-text #reading-body{text-align:left}
+.reader .reading-text #reading-body p{line-height:1.65;margin-bottom:2rem}
+@media(max-width:760px){.reader.wrap{width:calc(100% - 40px);padding-top:26px}.reader .reading-text h1{margin-bottom:32px}}
