@@ -1,6 +1,42 @@
 // Texto enviado pelo autor, preservado integralmente.
 window.PUBLICACOES = [
   {
+    "id": "se-eu-tivesse-nascido-em-outro-lugar-no-que-eu-acreditaria",
+    "categoria": "artigos",
+    "titulo": "Se eu tivesse nascido em outro lugar, no que eu acreditaria?",
+    "paragrafos": [
+      "A gente costuma pensar que escolheu aquilo em que acredita. Escolheu a religião, os valores, a maneira de enxergar o mundo e até algumas ideias que considera certas ou erradas. Mas será que escolheu mesmo?",
+      "Pensa em uma criança que nasce em uma família cristã. Desde pequena, ela provavelmente vai ouvir falar de Deus, Jesus, Bíblia, pecado, céu e inferno. Vai participar de alguma comemoração religiosa, ouvir orações e aprender que determinadas coisas fazem parte da verdade. Para essa criança, aquilo não parece uma escolha. É simplesmente o mundo como ela conhece.",
+      "Agora imagine outra criança nascendo em uma família muçulmana, em uma família hindu, em uma comunidade indígena ou em qualquer outra cultura religiosa. Ela provavelmente vai crescer ouvindo outras histórias, conhecendo outros símbolos e aprendendo outras respostas para as mesmas perguntas.",
+      "E existe uma coisa curiosa nisso.",
+      "As duas crianças podem crescer acreditando profundamente que aquilo que aprenderam é verdadeiro.",
+      "Nenhuma delas precisou conhecer todas as religiões existentes para escolher uma. Primeiro veio a família, depois a cultura, depois os costumes e, junto com tudo isso, a religião.",
+      "É claro que uma pessoa pode crescer e mudar de opinião. Pode conhecer outras religiões, estudar, questionar aquilo que aprendeu e até deixar de acreditar. Mas existe uma grande diferença entre escolher alguma coisa depois de conhecer várias possibilidades e receber uma crença desde o nascimento.",
+      "Quando a gente percebe isso, começa a entender por que a religião está tão ligada à cultura.",
+      "Não é por acaso que determinadas regiões do mundo possuem maioria cristã, enquanto outras possuem maioria muçulmana, hindu ou seguem outras tradições. A história, as famílias, as guerras, as migrações, os governos e os costumes foram formando essas sociedades ao longo de muito tempo.",
+      "Se eu tivesse nascido em outro lugar, provavelmente teria aprendido outra maneira de entender a vida.",
+      "E isso não quer dizer que aquilo em que acredito hoje seja automaticamente falso. Também não quer dizer que outra pessoa esteja automaticamente certa. A questão é perceber que existe algo antes da própria crença: o lugar onde nascemos e as pessoas que nos ensinaram a olhar para o mundo.",
+      "Muitas vezes, uma pessoa defende sua religião com a certeza de que chegou sozinha até aquela conclusão. Mas, quando olha para a própria história, percebe que a maior parte daquilo foi apresentada a ela muito antes de ter idade para questionar.",
+      "A criança não pergunta qual religião deveria seguir. Ela aprende a seguir aquela que está ao seu redor.",
+      "Isso acontece não apenas com religião. A gente também aprende uma língua, costumes, formas de comportamento, ideias sobre certo e errado e muitas outras coisas dentro da família e da sociedade. Só que, quando se trata de religião, muitas pessoas passam a enxergar aquilo que aprenderam como uma verdade que não poderia ter sido diferente.",
+      "Talvez seja por isso que conhecer outras culturas seja tão importante. Quando a gente entra em contato com pessoas que pensam completamente diferente, percebe que existem outras maneiras de enxergar aquilo que parecia óbvio.",
+      "E talvez o mais interessante não seja abandonar aquilo em que acreditamos, mas descobrir se continuamos acreditando porque realmente pensamos sobre aquilo ou simplesmente porque foi o que nos ensinaram.",
+      "Essa pergunta pode incomodar, mas não precisa ser uma ameaça.",
+      "Se uma crença é realmente importante para alguém, talvez ela possa sobreviver a uma pergunta.",
+      "No fim, talvez todos nós carreguemos um pouco da cultura em que nascemos dentro daquilo que chamamos de nossa própria opinião.",
+      "E então fica uma pergunta difícil de ignorar:",
+      "Se você tivesse nascido do outro lado do mundo, dentro de outra família e de outra cultura, será que ainda acreditaria exatamente nas mesmas coisas que acredita hoje?"
+    ],
+    "destaques": [
+      "Mas será que escolheu mesmo?",
+      "existe uma grande diferença entre escolher alguma coisa depois de conhecer várias possibilidades e receber uma crença desde o nascimento.",
+      "A criança não pergunta qual religião deveria seguir. Ela aprende a seguir aquela que está ao seu redor.",
+      "descobrir se continuamos acreditando porque realmente pensamos sobre aquilo ou simplesmente porque foi o que nos ensinaram.",
+      "Se uma crença é realmente importante para alguém, talvez ela possa sobreviver a uma pergunta.",
+      "Se você tivesse nascido do outro lado do mundo, dentro de outra família e de outra cultura, será que ainda acreditaria exatamente nas mesmas coisas que acredita hoje?"
+    ]
+  },
+  {
     "id": "por-que-precisamos-provar-que-nossa-religiao-e-verdadeira",
     "categoria": "artigos",
     "titulo": "Por que precisamos provar que nossa religião é verdadeira?",
