@@ -34,7 +34,8 @@ window.PUBLICACOES = [
       "descobrir se continuamos acreditando porque realmente pensamos sobre aquilo ou simplesmente porque foi o que nos ensinaram.",
       "Se uma crença é realmente importante para alguém, talvez ela possa sobreviver a uma pergunta.",
       "Se você tivesse nascido do outro lado do mundo, dentro de outra família e de outra cultura, será que ainda acreditaria exatamente nas mesmas coisas que acredita hoje?"
-    ]
+    ],
+    "data": "26/05/2019"
   },
   {
     "id": "por-que-precisamos-provar-que-nossa-religiao-e-verdadeira",
