@@ -34,14 +34,30 @@ function render(){
  document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+category)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  document.querySelector('.masthead').hidden=!!article;el('collection').hidden=!!article;el('reader').hidden=!article;
  if(article){
-  document.title=`${article.titulo} | Zeirton Luna`;el('reading-title').textContent=article.titulo;el('reading-meta').textContent=[categorias[article.categoria],article.data].filter(Boolean).join(' · ');el('back').href='#'+article.categoria;
+  document.title=`${article.titulo} | Zeirton Luna`;el('reading-title').textContent=article.titulo;el('reading-meta').textContent=[article.grupo||categorias[article.categoria],article.data].filter(Boolean).join(' · ');el('back').href='#'+article.categoria;
   el('reading-body').replaceChildren(...(Array.isArray(article.paragrafos)?article.paragrafos:[]).map(p=>readingParagraph(p, article.destaques)));
   const file=safeURL(article.arquivo);el('download').hidden=!file;if(file)el('download').href=file;else el('download').removeAttribute('href');
  }else{
   const valid=categorias[route];const selected=valid?items.filter(p=>p.categoria===route):items;
   document.title=valid?`${valid} | Zeirton Luna`:'Zeirton Luna';el('page-title').replaceChildren();if(valid)el('page-title').textContent=valid;else el('page-title').textContent='Zeirton Luna';
   el('eyebrow').hidden=!valid;el('eyebrow').textContent=valid?'Zeirton Luna':'';el('collection-title').textContent=valid?valid:'Todas as publicações';el('total').textContent=label(selected.length);el('empty').hidden=selected.length>0;
-  el('entries').replaceChildren(...selected.map(p=>{const card=node('article',null,'entry');const img=safeURL(p.imagem);if(img){const i=node('img');i.src=img;i.alt=p.imagemAlt||'';i.loading='lazy';card.append(i)}card.append(node('small',categorias[p.categoria]||''));const h=node('h3'),a=node('a',p.titulo);a.href='#ler/'+encodeURIComponent(p.id);h.append(a);card.append(h);if(p.resumo)card.append(node('p',p.resumo));return card}));
+  const groups=new Map();
+  selected.forEach(p=>{const name=p.grupo||categorias[p.categoria]||'';if(!groups.has(name))groups.set(name,[]);groups.get(name).push(p)});
+  el('entries').replaceChildren(...Array.from(groups,([name,posts])=>{
+   const section=node('section',null,'publication-group');
+   section.setAttribute('aria-label',name);
+   section.append(node('h3',name,'group-title'));
+   section.append(node('p',label(posts.length),'publication-count'));
+   posts.forEach(p=>{
+    const card=node('article',null,'entry'),img=safeURL(p.imagem);
+    if(img){const i=node('img');i.src=img;i.alt=p.imagemAlt||'';i.loading='lazy';card.append(i)}
+    card.append(node('small',[categorias[p.categoria],p.data].filter(Boolean).join(' · ')));
+    const h=node('h4'),a=node('a',p.titulo);a.href='#ler/'+encodeURIComponent(p.id);h.append(a);card.append(h);
+    if(p.resumo)card.append(node('p',p.resumo));section.append(card);
+   });
+   return section;
+  }));
+
  }
 }
 window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);el('conteudo').focus({preventScroll:true})});render();
