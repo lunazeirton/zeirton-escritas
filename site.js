@@ -1,6 +1,14 @@
 'use strict';
 const categorias = {artigos:'Artigos',escritas:'Escritas',opinioes:'Opiniões',livros:'Livros'};
-const items = Array.isArray(window.PUBLICACOES) ? window.PUBLICACOES : [];
+function publicationDate(value) {
+ const match=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value||'');
+ if(!match)return Infinity;
+ const [,day,month,year]=match;
+ const date=new Date(Date.UTC(Number(year),Number(month)-1,Number(day)));
+ return date.getUTCFullYear()===Number(year)&&date.getUTCMonth()===Number(month)-1&&date.getUTCDate()===Number(day)?date.getTime():Infinity;
+}
+const items = (Array.isArray(window.PUBLICACOES) ? [...window.PUBLICACOES] : [])
+ .sort((a,b)=>publicationDate(a.data)-publicationDate(b.data));
 const el = id => document.getElementById(id);
 function safeURL(value){if(!value)return null;try{const u=new URL(value,location.href);return ['http:','https:','file:'].includes(u.protocol)?u.href:null}catch{return null}}
 function label(n){return n===1?'1 publicação':`${n} publicações`}
